@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moon Doom</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Three.js canvas is appended here by the renderer -->
+  <div id="game-container"></div>
+
+  <!-- Click-to-play overlay (shown before PointerLock) -->
+  <div id="start-overlay">
+    <h1>MOON DOOM</h1>
+    <p>Click to play</p>
+  </div>
+
+  <!-- Crosshair -->
+  <div id="crosshair">+</div>
+
+  <!-- HUD overlay -->
+  <div id="hud">
+    <div id="hud-health">
+      <span class="hud-label">HEALTH</span>
+      <span id="health-value">100</span>
+    </div>
+    <div id="hud-ammo">
+      <span class="hud-label">AMMO</span>
+      <span id="ammo-value">50</span>
+    </div>
+    <div id="hud-score">
+      <span class="hud-label">SCORE</span>
+      <span id="score-value">0</span>
+    </div>
+  </div>
+
+  <!-- Weapon sprite overlay -->
+  <div id="weapon-container">
+    <div id="weapon-sprite"></div>
+  </div>
+
+  <!-- Damage flash overlay -->
+  <div id="damage-flash"></div>
+
+  <!-- Death screen -->
+  <div id="death-screen" style="display: none;">
+    <h2>YOU DIED</h2>
+    <p>Respawning...</p>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

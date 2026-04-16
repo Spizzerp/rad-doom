@@ -1,0 +1,204 @@
+/* client/style.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  background: #000;
+  font-family: 'Courier New', monospace;
+  color: #fff;
+  cursor: none;
+}
+
+#game-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+#game-container canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Start overlay */
+#start-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 17, 0.9);
+  z-index: 100;
+  cursor: pointer;
+}
+
+#start-overlay h1 {
+  font-size: 4rem;
+  color: #ff4444;
+  text-shadow: 0 0 20px #ff0000;
+  margin-bottom: 1rem;
+  letter-spacing: 0.3em;
+}
+
+#start-overlay p {
+  font-size: 1.5rem;
+  color: #aaa;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Crosshair */
+#crosshair {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: #0f0;
+  text-shadow: 0 0 4px #0f0;
+  z-index: 10;
+  pointer-events: none;
+  display: none; /* shown when pointer is locked */
+}
+
+/* HUD */
+#hud {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 10;
+  pointer-events: none;
+  display: none; /* shown when game is active */
+}
+
+#hud-health, #hud-ammo, #hud-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hud-label {
+  font-size: 0.7rem;
+  color: #888;
+  letter-spacing: 0.2em;
+}
+
+#health-value {
+  font-size: 2rem;
+  color: #ff4444;
+  text-shadow: 0 0 8px #ff0000;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+#health-value.low {
+  color: #ff0000;
+  text-shadow: 0 0 16px #ff0000, 0 0 4px #fff;
+  animation: pulse 0.8s infinite;
+}
+
+#ammo-value {
+  font-size: 2rem;
+  color: #ffaa00;
+  text-shadow: 0 0 8px #ff8800;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+#ammo-value.low {
+  color: #ff6600;
+  text-shadow: 0 0 16px #ff4400;
+  animation: pulse 0.8s infinite;
+}
+
+#score-value {
+  font-size: 2rem;
+  color: #44ff44;
+  text-shadow: 0 0 8px #00ff00;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Weapon overlay */
+#weapon-container {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 200px;
+  z-index: 5;
+  pointer-events: none;
+  display: none; /* shown when game is active */
+}
+
+#weapon-sprite {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #444 0%, #666 40%, transparent 100%);
+  clip-path: polygon(30% 100%, 70% 100%, 55% 20%, 50% 0%, 45% 20%);
+}
+
+/* Damage flash */
+#damage-flash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 0, 0, 0);
+  z-index: 20;
+  pointer-events: none;
+  transition: background 0.1s ease-out;
+}
+
+#damage-flash.active {
+  background: rgba(255, 0, 0, 0.3);
+}
+
+/* Death screen */
+#death-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(100, 0, 0, 0.7);
+  z-index: 50;
+}
+
+#death-screen h2 {
+  font-size: 3rem;
+  color: #ff0000;
+  text-shadow: 0 0 20px #ff0000;
+}
+
+#death-screen p {
+  font-size: 1rem;
+  color: #ccc;
+  margin-top: 1rem;
+}
